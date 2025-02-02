@@ -32,31 +32,9 @@ This fetches the newest version of the submodule for the backend code and is nec
 
 
 ## Building the project
-TO build a local version of the image for testing purposes, simply run:
+To build a local version of the image for testing purposes, simply run:
 ``` 
 cd ./bicep-snort
-docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=7.0.6 -t maxldwg/bicep-snort:latest --no-cache
+docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=3.6.2.0 -t maxldwg/bicep-snort:latest --no-cache
 ```
 Change the version to your desried one
-
-
-
-
-USAGE
-
-in configuration configure the degfault loggers like so:
-
-alert_csv = { 
-    file=true,
-    limit = 1000,
-}
-alert_fast = {
-        file=true,
-    limit = 1000,
- }
-alert_full = {
-        file=true,
-    limit = 1000,
- }
-
- specify config with -c and log output -l, file -R rules file
