@@ -12,16 +12,15 @@ class Snort(IDSBase):
     log_location: str = "/opt/logs"
     ruleset_location: str = "/tmp/custom_rules.rules"
     parser = SnortParser()
-
+    parser.alert_file_location = f"{log_location}/alert_fast.txt"
     async def configure(self, file_path):
         # Set env variable for the additional configs to be included by the default configuration
         additional_config_dir = self.get_additional_config_directory_from_file_location()
         os.environ["SNORT_CONFIG_DIR"] = additional_config_dir
-
-        shutil.move(file_path, self.configuration_location)
         try:
-            os.mkdir(self.log_location)
-            os.mkdir(additional_config_dir)
+            os.makedirs(self.log_location, exist_ok=True)
+            os.makedirs(additional_config_dir, exist_ok=True)
+            shutil.move(file_path, self.configuration_location)
             return "succesfully configured"
         except Exception as e:
             print(e)
@@ -31,10 +30,9 @@ class Snort(IDSBase):
         shutil.move(file_path, self.ruleset_location)
         return "succesfuly setup ruleset"
 
-
     async def execute_network_analysis_command(self):
-        start_suricata = ["suricata", "-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
-        pid = await execute_command(start_suricata)
+        command = ["snort", "-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
+        pid = await execute_command(command)
         return pid
     
     async def execute_static_analysis_command(self, file_path):
@@ -45,3 +43,4 @@ class Snort(IDSBase):
     def get_additional_config_directory_from_file_location(self):
         config_directory = "/".join(self.configuration_location.split("/")[:-1]) + "/" # add trailing slash, do not delete it, otherwise default config will have troubles
         return config_directory
+    

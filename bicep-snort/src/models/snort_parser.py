@@ -9,7 +9,7 @@ import re
 class SnortParser(IDSParser):
 
     # TODO: 11 scrape the whole directory  
-    alert_file_location = "/opt/logs/alerts_and_anomalies.json"
+    alert_file_location = "/opt/logs/alert_fast.txt"
     LOG_PATTERN = re.compile(
         r"(\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d+) \[\*\*\] \[\d+:\d+:\d+\] \"(.*?)\" \[\*\*\] \[Classification: (.*?)\] \[Priority: (\d+)\] \{(\w+)\} (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)? -> (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)?"
     )
