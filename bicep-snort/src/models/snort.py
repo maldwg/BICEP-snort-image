@@ -1,0 +1,47 @@
+import asyncio
+from  src.utils.models.ids_base import IDSBase
+import shutil
+import os
+from ..utils.general_utilities import execute_command
+from .snort_parser import SnortParser
+
+class Snort(IDSBase):
+    # default config injected in dockerfile
+    default_configuration_location: str = os.getenv("SNORT_DEFAULT_CONFIG_LOCATION", "/etc/snort/etc/snort/snort.lua")
+    configuration_location: str = "/tmp/configuration/configuration.lua"
+    log_location: str = "/opt/logs"
+    ruleset_location: str = "/tmp/custom_rules.rules"
+    parser = SnortParser()
+
+    async def configure(self, file_path):
+        # Set env variable for the additional configs to be included by the default configuration
+        additional_config_dir = self.get_additional_config_directory_from_file_location()
+        os.environ["SNORT_CONFIG_DIR"] = additional_config_dir
+
+        shutil.move(file_path, self.configuration_location)
+        try:
+            os.mkdir(self.log_location)
+            os.mkdir(additional_config_dir)
+            return "succesfully configured"
+        except Exception as e:
+            print(e)
+            return e
+    
+    async def configure_ruleset(self, file_path):
+        shutil.move(file_path, self.ruleset_location)
+        return "succesfuly setup ruleset"
+
+
+    async def execute_network_analysis_command(self):
+        start_suricata = ["suricata", "-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
+        pid = await execute_command(start_suricata)
+        return pid
+    
+    async def execute_static_analysis_command(self, file_path):
+        command = ["snort", "-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location]
+        pid = await execute_command(command)
+        return pid
+    
+    def get_additional_config_directory_from_file_location(self):
+        config_directory = "/".join(self.configuration_location.split("/")[:-1]) + "/" # add trailing slash, do not delete it, otherwise default config will have troubles
+        return config_directory

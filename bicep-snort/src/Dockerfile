@@ -2,27 +2,25 @@ ARG BASE_IMAGE
 ARG VERSION
 FROM ${BASE_IMAGE}:${VERSION}
 
-# Use explicitly the python version to install the reqirements, and do not update the python3 version
-# since slips is relying on version 3.8 and breaks otherwise
-
-RUN apt update -y && apt upgrade -y
-RUN apt-get install software-properties-common  -y
-RUN add-apt-repository ppa:deadsnakes/ppa -y
-RUN apt install python3.12 python3.12-distutils -y
-RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
+RUN apt install python3-pip -y
 
 RUN mkdir /opt/code
 WORKDIR /opt/code
 
 COPY ./requirements.txt /opt/code/requirements.txt
-COPY ./apt-requirements.txt /tmp/apt-requirements.txt
 COPY ./src/ /opt/code/src
+COPY ./apt-requirements.txt /tmp/apt-requirements.txt
+COPY ./snort.lua /etc/snort/etc/snort/snort.lua
+ENV SNORT_DEFAULT_CONFIG_LOCATION=/etc/snort/etc/snort/snort.lua
 
-# path to locate the IDSBase implementation
-ENV IDS_MODULE=src.models.slips
-ENV IDS_CLASS=Slips
-
-RUN python3.12 -m pip install -r requirements.txt
+RUN pip3 install -r requirements.txt
 RUN xargs apt install -y < /tmp/apt-requirements.txt
 
+
+# path to locate the IDSBase implementation
+ENV IDS_MODULE=src.models.snort
+ENV IDS_CLASS=Snort
+# Define default value for configuration directory. 
+# gets overriden in the configuration process of Snort
+ENV SNORT_CONFIG_DIR=/tmp/configs
 CMD [ "/bin/bash","-c","fastapi dev /opt/code/src/main.py --host 0.0.0.0 --port ${PORT}" ]

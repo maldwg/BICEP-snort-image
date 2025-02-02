@@ -3,7 +3,7 @@ on:
   workflow_call:
 env:
   BASE_IMAGE: snort
-  BASE_IMAGE_USER: stratosphereips
+  BASE_IMAGE_USER: maxldwg
   IMAGE_NAME: bicep-snort
   DOCKER_USER: maxldwg
 
