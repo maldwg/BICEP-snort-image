@@ -40,11 +40,12 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
     alerts = await parser.parse_alerts()
     
     # there are 384 entries that should be regarded as valid
-    assert len(alerts) == 14
-    assert alerts[0].message == 'Potentially Bad Traffic'
+    print(alerts[0])
+    assert len(alerts) == 4
+    assert alerts[0].message == 'PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority'
     assert alerts[0].severity == 0.75
-    assert alerts[10].message == 'Misc activity'
-    assert alerts[10].severity == 0.5 
+    assert alerts[2].type == 'Potentially Bad Traffic'
+    assert alerts[2].severity == 0.75
 
     os.remove(temporary_alert_file)
 
@@ -56,7 +57,7 @@ async def test_parse_line_valid(parser: SnortParser):
     line_data = '07/07-09:00:50.000000 [**] [1:254:17] "PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority" [**] [Classification: Potentially Bad Traffic] [Priority: 2] {UDP} 192.168.10.3:53 -> 192.168.10.5:61968'
     alert = await parser.parse_line(line_data)
     assert isinstance(alert, Alert)
-    assert alert.message == 'Potentially Bad Traffic'
+    assert alert.message == 'PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority'
     assert alert.severity == 0.75
     # If you have multiple types of alerts that you need to distinguish, add more tests like these
 

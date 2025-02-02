@@ -31,6 +31,7 @@ class SnortParser(IDSParser):
         return parsed_lines      
 
 
+    # hw to treat null values ? where allowed?
 
     async def parse_line(self, line):
         match = self.LOG_PATTERN.match(line)
@@ -38,7 +39,7 @@ class SnortParser(IDSParser):
             return None
 
         parsed_line = Alert()
-        timestamp, event_type, classification, priority, protocol, src_ip, src_port, dest_ip, dest_port = match.groups()
+        timestamp, message, category, priority, protocol, src_ip, src_port, dest_ip, dest_port = match.groups()
 
         parsed_line.time = parser.parse(timestamp).replace(tzinfo=None).isoformat()
         parsed_line.source_ip = src_ip
@@ -46,8 +47,12 @@ class SnortParser(IDSParser):
         parsed_line.destination_ip = dest_ip
         parsed_line.destination_port = str(dest_port) if dest_port else None
         parsed_line.severity = await self.normalize_threat_levels(int(priority))
-        parsed_line.message = classification
+        parsed_line.message = message
+        parsed_line.type = category
 
+        if not parsed_line.time or not parsed_line.source_ip or not parsed_line.source_port or not parsed_line.destination_ip or not parsed_line.destination_port or not parsed_line:
+            return None
+        
         return parsed_line
     
     

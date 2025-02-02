@@ -22,7 +22,7 @@ def ids():
 
 @pytest.mark.asyncio
 @patch("shutil.move")
-@patch("os.mkdir")
+@patch("os.makedirs")
 async def test_configure(mock_mkdir, mock_shutil, ids: Snort):
     mock_mkdir.return_value = None
     response = await ids.configure("/path/to/config.yaml")
@@ -44,7 +44,7 @@ async def test_execute_network_analysis_command(mock_execute_command, ids: Snort
     mock_execute_command.return_value = 555  
     pid = await ids.execute_network_analysis_command()
     mock_execute_command.assert_called_once_with([
-       "suricata", "-c", ids.default_configuration_location, "-i", ids.tap_interface_name, "-R", ids.ruleset_location, "-l", ids.log_location
+       "snort", "-c", ids.default_configuration_location, "-i", ids.tap_interface_name, "-R", ids.ruleset_location, "-l", ids.log_location
     ])
     assert pid == 555
 
