@@ -11,8 +11,7 @@ class SnortParser(IDSParser):
     # TODO: 11 scrape the whole directory  
     alert_file_location = "/opt/logs/alert_fast.txt"
     LOG_PATTERN = re.compile(
-        r"(\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d+) \[\*\*\] \[\d+:\d+:\d+\] \"(.*?)\" \[\*\*\] \[Classification: (.*?)\] \[Priority: (\d+)\] \{(\w+)\} (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)? -> (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)?"
-    )
+ r"(\d{2}/\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d+) \[\*\*\] \[\d+:\d+:\d+\] \"(.*?)\" \[\*\*\] \[Classification: (.*?)\] \[Priority: (\d+)\] \{(\w+)\} (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)? -> (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)?"    )
 
     async def parse_alerts(self):
         parsed_lines = []
@@ -37,11 +36,15 @@ class SnortParser(IDSParser):
         match = self.LOG_PATTERN.match(line)
         if not match:
             return None
-
         parsed_line = Alert()
         timestamp, message, category, priority, protocol, src_ip, src_port, dest_ip, dest_port = match.groups()
 
-        parsed_line.time = parser.parse(timestamp).replace(tzinfo=None).isoformat()
+        yy, mm, dd, time_part = timestamp.split("/", 2) + timestamp.split("-", 1)[1:]
+        yyyy = await self.calculate_four_digit_year_from_two_digits(yy)
+        formatted_timestamp = f"{yyyy}-{mm}-{dd} {time_part}"
+        parsed_line.time = parser.parse(formatted_timestamp).replace(tzinfo=None).isoformat()
+
+        
         parsed_line.source_ip = src_ip
         parsed_line.source_port = str(src_port) if src_port else None
         parsed_line.destination_ip = dest_ip
@@ -61,3 +64,14 @@ class SnortParser(IDSParser):
         if threat is None or threat < 1 or threat > 4:
             return None
         return 1 - ((threat - 1) / 4)
+    
+    async def calculate_four_digit_year_from_two_digits(yy):
+        current_year = datetime.now().year
+        current_century = current_year // 100 * 100  # 1900 or 2000
+        last_two_digits_of_current_year = current_year % 100
+
+        if int(yy) > last_two_digits_of_current_year:
+            yyyy = current_century - 100 + int(yy)  # Assume 1900s
+        else:
+            yyyy = current_century + int(yy)  # Assume 2000s
+        return yyyy

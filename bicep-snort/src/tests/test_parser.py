@@ -39,13 +39,11 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
     print(parser.alert_file_location)
     alerts = await parser.parse_alerts()
     
-    # there are 384 entries that should be regarded as valid
-    print(alerts[0])
-    assert len(alerts) == 4
-    assert alerts[0].message == 'PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority'
-    assert alerts[0].severity == 0.75
-    assert alerts[2].type == 'Potentially Bad Traffic'
-    assert alerts[2].severity == 0.75
+    assert len(alerts) == 6
+    assert alerts[0].message == 'INDICATOR-SCAN UPnP service discover attempt'
+    assert alerts[0].severity == 0.5
+    assert alerts[2].type == 'Detection of a Network Scan'
+    assert alerts[2].severity == 0.5
 
     os.remove(temporary_alert_file)
 
@@ -54,17 +52,18 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
 @pytest.mark.asyncio
 async def test_parse_line_valid(parser: SnortParser):
     # original data
-    line_data = '07/07-09:00:50.000000 [**] [1:254:17] "PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority" [**] [Classification: Potentially Bad Traffic] [Priority: 2] {UDP} 192.168.10.3:53 -> 192.168.10.5:61968'
+    line_data = '17/07/06-09:01:32.000000 [**] [1:1917:16] "INDICATOR-SCAN UPnP service discover attempt" [**] [Classification: Detection of a Network Scan] [Priority: 3] {UDP} 192.168.10.15:63176 -> 239.255.255.250:1900'
     alert = await parser.parse_line(line_data)
+    print(alert)
     assert isinstance(alert, Alert)
-    assert alert.message == 'PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority'
-    assert alert.severity == 0.75
+    assert alert.message == 'INDICATOR-SCAN UPnP service discover attempt'
+    assert alert.severity == 0.5
     # If you have multiple types of alerts that you need to distinguish, add more tests like these
 
 @pytest.mark.asyncio
 async def test_parse_line_missing_fields(parser: SnortParser):
     # Missing dest_ip and dest_port
-    line_data = '07/07-09:00:50.000000 [**] [1:254:17] "PROTOCOL-DNS SPOOF query response with TTL of 1 min. and no authority" [**] [Classification: Potentially Bad Traffic] {UDP} 192.168.10.3 -> 192.168.10.5:61968'
+    line_data = '17/07/06-09:01:32.000000 [**] [1:1917:16] "INDICATOR-SCAN UPnP service discover attempt" [**] [Classification: Detection of a Network Scan] [Priority: 3] {UDP} 192.168.10.15 -> 239.255.255.250'
     alert = await parser.parse_line(line_data)
     assert alert is None, "Expected None due to missing fields"
 

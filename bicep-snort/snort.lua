@@ -250,6 +250,7 @@ rate_filter =
 -- you can enable with defaults from the command line with -A <alert_type>
 -- uncomment below to set non-default configs
 --alert_csv = { }
+output = {show_year=true }
 alert_fast = {
     file=true,
     limit=10000 -- size in MB before roll over (~10GB)

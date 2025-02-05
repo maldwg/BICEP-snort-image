@@ -31,12 +31,12 @@ class Snort(IDSBase):
         return "succesfuly setup ruleset"
 
     async def execute_network_analysis_command(self):
-        command = ["snort", "-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
+        command = ["snort", "-y","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
         pid = await execute_command(command)
         return pid
     
     async def execute_static_analysis_command(self, file_path):
-        command = ["snort", "-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location]
+        command = ["snort", "-y","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location]
         pid = await execute_command(command)
         return pid
     
