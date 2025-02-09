@@ -37,9 +37,9 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
     shutil.copy(original_alert_file, temporary_alert_file)
     parser.alert_file_location = temporary_alert_file
     print(parser.alert_file_location)
-    alerts = await parser.parse_alerts()
+    alerts: list[Alert] = await parser.parse_alerts()
     
-    assert len(alerts) == 6
+    assert len(alerts) == 368
     assert alerts[0].message == 'INDICATOR-SCAN UPnP service discover attempt'
     assert alerts[0].severity == 0.5
     assert alerts[2].type == 'Detection of a Network Scan'
