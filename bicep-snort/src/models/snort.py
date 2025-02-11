@@ -13,11 +13,12 @@ class Snort(IDSBase):
     ruleset_location: str = "/tmp/custom_rules.rules"
     parser = SnortParser()
     parser.alert_file_location = f"{log_location}/alert_fast.txt"
+
     async def configure(self, file_path):
         # Set env variable for the additional configs to be included by the default configuration
         additional_config_dir = self.get_additional_config_directory_from_file_location()
         os.environ["SNORT_CONFIG_DIR"] = additional_config_dir
-        try:
+        try:            
             os.makedirs(self.log_location, exist_ok=True)
             os.makedirs(additional_config_dir, exist_ok=True)
             shutil.move(file_path, self.configuration_location)
@@ -31,12 +32,16 @@ class Snort(IDSBase):
         return "succesfuly setup ruleset"
 
     async def execute_network_analysis_command(self):
-        command = ["snort", "-y","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location]
+        # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
+        so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
+        command = ["snort","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location, "--plugin-path", so_rules_path]
         pid = await execute_command(command)
         return pid
     
     async def execute_static_analysis_command(self, file_path):
-        command = ["snort", "-y","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location]
+        # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
+        so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
+        command = ["snort","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location, "--plugin-path", so_rules_path]
         pid = await execute_command(command)
         return pid
     
