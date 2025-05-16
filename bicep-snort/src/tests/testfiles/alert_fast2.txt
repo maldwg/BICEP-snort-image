@@ -1,0 +1,187 @@
+11/08/17-12:24:52.063717 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1060 -> 94.63.150.63:80
+11/08/17-12:26:07.146324 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1099 -> 59.3.204.224:3128
+11/08/17-12:27:23.022007 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1346 -> 58.42.247.165:6667
+11/08/17-12:27:24.426426 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1346 -> 58.42.247.165:6667
+11/08/17-12:28:08.981529 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1358 -> 125.166.97.131:6667
+11/08/17-12:28:32.592624 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1362 -> 202.112.126.218:6667
+11/08/17-12:28:33.347053 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1362 -> 202.112.126.218:6667
+11/08/17-12:29:17.151177 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1389 -> 91.228.230.31:80
+11/08/17-12:29:21.376831 [**] [122:23:1] "(port_scan) UDP filtered portsweep" [**] [Priority: 3] {UDP} 147.32.84.165:1025 -> 147.32.80.9:53
+11/08/17-12:29:58.261336 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.165:1417 -> 95.172.94.21:80
+11/08/17-12:30:36.006286 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.165:1441 -> 77.238.167.32:80
+11/08/17-12:30:48.126299 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1459 -> 94.240.163.207:6667
+11/08/17-12:31:14.623050 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:1481 -> 87.248.203.253:80
+11/08/17-12:31:14.801056 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:1482 -> 87.248.203.253:80
+11/08/17-12:31:15.292894 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.165:1489 -> 77.238.167.32:80
+11/08/17-12:31:14.579460 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:1480 -> 87.248.203.253:80
+11/08/17-12:31:17.680070 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.165:1509 -> 95.172.94.64:80
+11/08/17-12:32:02.787616 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1520 -> 60.173.109.42:6667
+11/08/17-12:32:03.857086 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1520 -> 60.173.109.42:6667
+11/08/17-12:32:29.862198 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1524 -> 218.201.21.157:6667
+11/08/17-12:33:48.565773 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1613 -> 64.12.90.65:25
+11/08/17-12:35:51.700603 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:1858 -> 50.22.198.84:80
+11/08/17-12:36:16.293764 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:1935 -> 50.22.198.84:80
+11/08/17-12:36:21.717917 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:1958 -> 50.22.198.84:80
+11/08/17-12:36:50.321913 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1742 -> 173.0.132.191:25
+11/08/17-12:36:57.084572 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:2052 -> 86.123.31.54:6667
+11/08/17-12:36:57.682110 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:2052 -> 86.123.31.54:6667
+11/08/17-12:37:30.640734 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:2122 -> 50.22.198.84:80
+11/08/17-12:38:23.118956 [**] [1:16014:11] "SERVER-OTHER Novell eDirectory HTTP headers denial of service attempt" [**] [Classification: Attempted Denial of Service] [Priority: 2] {TCP} 147.32.84.165:2235 -> 65.54.165.141:80
+11/08/17-12:38:36.934622 [**] [1:16014:11] "SERVER-OTHER Novell eDirectory HTTP headers denial of service attempt" [**] [Classification: Attempted Denial of Service] [Priority: 2] {TCP} 147.32.84.165:2280 -> 65.54.165.177:80
+11/08/17-12:41:23.305300 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:2708 -> 64.191.223.39:25
+11/08/17-12:42:17.887598 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:2834 -> 8.5.1.41:80
+11/08/17-12:42:55.076754 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:2102 -> 205.178.149.7:25
+11/08/17-12:45:04.913974 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1094 -> 84.40.69.185:3128
+11/08/17-12:46:14.719916 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:3419 -> 87.248.203.254:80
+11/08/17-12:46:57.075021 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1310 -> 91.220.0.52:80
+11/08/17-12:48:09.238836 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3713 -> 86.123.31.54:6667
+11/08/17-12:48:09.837076 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3713 -> 86.123.31.54:6667
+11/08/17-12:48:43.846719 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1341 -> 208.73.210.29:80
+11/08/17-12:49:06.538390 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:2481 -> 67.195.168.230:25
+11/08/17-12:49:45.728361 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3948 -> 202.112.126.218:6667
+11/08/17-12:49:46.481875 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3948 -> 202.112.126.218:6667
+11/08/17-12:49:55.890853 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1370 -> 60.190.223.75:888
+11/08/17-12:49:59.870808 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1276 -> 208.87.32.68:80
+11/08/17-12:50:13.408150 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1384 -> 184.106.213.57:6667
+11/08/17-12:50:13.595907 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1384 -> 184.106.213.57:6667
+11/08/17-12:50:18.973293 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.191:1398 -> 77.238.167.32:80
+11/08/17-12:50:36.452056 [**] [1:26410:5] "INDICATOR-COMPROMISE IP address check to j.maxmind.com detected" [**] [Classification: Misc activity] [Priority: 3] {TCP} 147.32.84.192:1312 -> 74.86.64.162:80
+11/08/17-12:50:37.125488 [**] [1:26410:5] "INDICATOR-COMPROMISE IP address check to j.maxmind.com detected" [**] [Classification: Misc activity] [Priority: 3] {TCP} 147.32.84.192:1315 -> 74.86.64.162:80
+11/08/17-12:50:43.300229 [**] [122:23:1] "(port_scan) UDP filtered portsweep" [**] [Priority: 3] {UDP} 147.32.84.192:1025 -> 147.32.80.9:53
+11/08/17-12:51:42.792394 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1384 -> 50.22.198.84:80
+11/08/17-12:51:42.913239 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.192:1384 -> 50.22.198.84:80
+11/08/17-12:51:43.172821 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.192:1386 -> 50.22.198.84:80
+11/08/17-12:51:46.056837 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1442 -> 98.138.84.55:587
+11/08/17-12:51:56.187587 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.192:1391 -> 50.22.198.84:80
+11/08/17-12:51:56.435195 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.192:1393 -> 50.22.198.84:80
+11/08/17-12:52:04.092695 [**] [1:26410:5] "INDICATOR-COMPROMISE IP address check to j.maxmind.com detected" [**] [Classification: Misc activity] [Priority: 3] {TCP} 147.32.84.192:1403 -> 74.86.64.162:80
+11/08/17-12:52:04.752960 [**] [1:26410:5] "INDICATOR-COMPROMISE IP address check to j.maxmind.com detected" [**] [Classification: Misc activity] [Priority: 3] {TCP} 147.32.84.192:1406 -> 74.86.64.162:80
+11/08/17-12:51:59.629124 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4279 -> 211.157.110.34:6667
+11/08/17-12:52:07.136695 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4279 -> 211.157.110.34:6667
+11/08/17-12:52:37.595093 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4365 -> 61.17.216.22:6667
+11/08/17-12:52:38.251481 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4365 -> 61.17.216.22:6667
+11/08/17-12:53:09.458193 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1463 -> 92.46.244.154:6667
+11/08/17-12:53:41.430560 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1445 -> 91.220.0.52:80
+11/08/17-12:54:19.895765 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1501 -> 128.114.120.194:25
+11/08/17-12:54:31.343436 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.192:1472 -> 77.238.167.32:80
+11/08/17-12:55:06.251018 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.192:1501 -> 77.238.167.32:80
+11/08/17-12:55:09.920466 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1517 -> 61.17.216.86:6667
+11/08/17-12:55:10.672121 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1517 -> 61.17.216.86:6667
+11/08/17-12:55:10.902363 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.191:1567 -> 77.238.167.32:80
+11/08/17-12:55:12.762077 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:4736 -> 213.165.64.102:25
+11/08/17-12:55:16.594253 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1061 -> 94.63.150.63:80
+11/08/17-12:55:33.972802 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1527 -> 200.171.4.222:6667
+11/08/17-12:55:34.577329 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1527 -> 200.171.4.222:6667
+11/08/17-12:55:56.393442 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4852 -> 219.145.198.122:6667
+11/08/17-12:55:57.416756 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4852 -> 219.145.198.122:6667
+11/08/17-12:56:42.422667 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1326 -> 61.17.216.69:6667
+11/08/17-12:56:56.222277 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1347 -> 50.22.198.84:80
+11/08/17-12:56:56.470575 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1349 -> 50.22.198.84:80
+11/08/17-12:56:56.918496 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1695 -> 61.17.216.25:6667
+11/08/17-12:56:57.631441 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1695 -> 61.17.216.25:6667
+11/08/17-12:56:58.178201 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1353 -> 50.22.198.84:80
+11/08/17-12:56:58.427610 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1355 -> 50.22.198.84:80
+11/08/17-12:57:29.182831 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1727 -> 74.208.5.21:25
+11/08/17-12:57:42.043720 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1740 -> 81.10.0.18:6667
+11/08/17-12:57:45.686491 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1740 -> 81.10.0.18:6667
+11/08/17-12:57:54.419736 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1602 -> 46.4.36.120:443
+11/08/17-12:58:03.865590 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1427 -> 64.95.64.197:80
+11/08/17-12:58:14.168798 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:1199 -> 74.125.232.217:80
+11/08/17-12:58:14.525209 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:1171 -> 69.64.147.243:80
+11/08/17-12:58:16.929399 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1774 -> 61.17.216.15:6667
+11/08/17-12:58:17.600741 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1774 -> 61.17.216.15:6667
+11/08/17-12:58:24.183494 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.165:1225 -> 74.125.232.217:80
+11/08/17-12:58:24.453881 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.165:1202 -> 69.64.147.243:80
+11/08/17-12:58:34.035235 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.205:1063 -> 174.133.57.141:80
+11/08/17-12:58:52.995364 [**] [1:15168:14] "INDICATOR-COMPROMISE Suspicious .ru dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.165:1538 -> 147.32.80.9:53
+11/08/17-12:58:52.995376 [**] [1:15168:14] "INDICATOR-COMPROMISE Suspicious .ru dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.165:1538 -> 147.32.80.9:53
+11/08/17-12:58:55.196622 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:1819 -> 24.40.8.248:25
+11/08/17-12:59:17.486442 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1669 -> 122.160.245.73:25
+11/08/17-12:59:23.809516 [**] [1:28190:4] "INDICATOR-COMPROMISE Suspicious .cc dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.191:1493 -> 147.32.80.9:53
+11/08/17-12:59:23.809527 [**] [1:28190:4] "INDICATOR-COMPROMISE Suspicious .cc dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.191:1493 -> 147.32.80.9:53
+11/08/17-12:59:26.697715 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-12:59:27.402215 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-12:59:41.863632 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1537 -> 74.125.232.218:80
+11/08/17-12:59:43.517280 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-12:59:51.044968 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-12:59:51.300492 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1405 -> 182.7.65.147:6667
+11/08/17-12:59:57.091007 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.205:1303 -> 217.163.21.38:80
+11/08/17-13:00:15.883090 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-13:00:16.006442 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-13:00:16.184225 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-13:00:24.271006 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.193:1582 -> 202.112.126.218:6667
+11/08/17-13:00:25.023962 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.193:1582 -> 202.112.126.218:6667
+11/08/17-13:00:25.242458 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.193:1582 -> 202.112.126.218:6667
+11/08/17-13:00:25.242458 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.193:1582 -> 202.112.126.218:6667
+11/08/17-13:00:49.465883 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.192:1796 -> 46.4.36.120:443
+11/08/17-13:00:50.805221 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1633 -> 67.215.253.140:80
+11/08/17-13:00:50.863761 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1634 -> 67.215.253.140:80
+11/08/17-13:00:51.185701 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1636 -> 67.215.253.140:80
+11/08/17-13:00:57.917569 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1640 -> 67.215.253.140:80
+11/08/17-13:00:57.989933 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1642 -> 67.215.253.140:80
+11/08/17-13:00:58.296045 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1645 -> 67.215.253.140:80
+11/08/17-13:01:08.655861 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1652 -> 67.215.253.140:80
+11/08/17-13:01:08.656022 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1652 -> 67.215.253.140:80
+11/08/17-13:01:08.760539 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1655 -> 67.215.253.140:80
+11/08/17-13:01:10.931510 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1665 -> 50.22.198.84:80
+11/08/17-13:01:11.179443 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1666 -> 50.22.198.84:80
+11/08/17-13:01:12.322841 [**] [119:28:3] "(http_inspect) HTTP POST or PUT request without content-length or chunks" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667
+11/08/17-13:01:13.386454 [**] [119:13:3] "(http_inspect) HTTP start line or header line terminated by LF without a CR" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667
+11/08/17-13:01:14.298033 [**] [1:27721:4] "INDICATOR-COMPROMISE Suspicious .su dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.165:1535 -> 147.32.80.9:53
+11/08/17-13:01:14.298047 [**] [1:27721:4] "INDICATOR-COMPROMISE Suspicious .su dns query" [**] [Classification: A Network Trojan was detected] [Priority: 1] {UDP} 147.32.84.165:1535 -> 147.32.80.9:53
+11/08/17-13:01:17.384604 [**] [1:16014:11] "SERVER-OTHER Novell eDirectory HTTP headers denial of service attempt" [**] [Classification: Attempted Denial of Service] [Priority: 2] {TCP} 147.32.84.192:1829 -> 65.54.165.141:80
+11/08/17-13:01:18.732181 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1675 -> 50.22.198.84:80
+11/08/17-13:01:18.978038 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1677 -> 50.22.198.84:80
+11/08/17-13:01:21.784036 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.206:1064 -> 94.63.150.63:80
+11/08/17-13:01:22.959465 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:1594 -> 94.245.120.86:25
+11/08/17-13:01:28.506486 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.204:1342 -> 195.113.232.99:80
+11/08/17-13:01:37.857270 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.205:1355 -> 208.87.32.68:80
+11/08/17-13:01:58.482403 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.191:2018 -> 74.200.91.34:25
+11/08/17-13:02:08.535169 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.204:1354 -> 87.248.203.254:80
+11/08/17-13:02:09.133860 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.204:1361 -> 95.172.94.50:80
+11/08/17-13:02:08.724552 [**] [1:43808:1] "SERVER-IIS Microsoft ASP.NET bad request denial of service attempt" [**] [Classification: Detection of a Denial of Service Attack] [Priority: 2] {TCP} 147.32.84.204:1355 -> 87.248.203.254:80
+11/08/17-13:02:37.508758 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.206:1278 -> 60.190.223.75:888
+11/08/17-13:02:43.741182 [**] [119:8:1] "(http_inspect) URI path contains consecutive slash characters" [**] [Priority: 3] {TCP} 147.32.84.204:1390 -> 77.238.167.32:80
+11/08/17-13:02:55.442693 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.165:3251 -> 65.54.188.94:25
+11/08/17-13:03:00.077863 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.193:1723 -> 74.117.116.82:80
+11/08/17-13:03:00.900368 [**] [122:7:1] "(port_scan) TCP filtered portsweep" [**] [Priority: 3] {TCP} 147.32.84.205:1445 -> 67.214.158.5:80
+11/08/17-13:03:01.181428 [**] [119:2:1] "(http_inspect) URI contains double-encoded hexadecimal characters" [**] [Priority: 3] {TCP} 147.32.84.193:1729 -> 50.22.198.84:80
+11/08/17-13:05:47.520427 [**] [122:23:1] "(port_scan) UDP filtered portsweep" [**] [Priority: 3] {UDP} 147.32.80.9:53 -> 147.32.84.193:1070
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1346 -> 58.42.247.165:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1346 -> 58.42.247.165:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1362 -> 202.112.126.218:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1362 -> 202.112.126.218:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1520 -> 60.173.109.42:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1520 -> 60.173.109.42:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:2052 -> 86.123.31.54:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:2052 -> 86.123.31.54:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:3713 -> 86.123.31.54:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3713 -> 86.123.31.54:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:3948 -> 202.112.126.218:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:3948 -> 202.112.126.218:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1384 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1384 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:4279 -> 211.157.110.34:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4279 -> 211.157.110.34:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:4365 -> 61.17.216.22:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4365 -> 61.17.216.22:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.192:1517 -> 61.17.216.86:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1517 -> 61.17.216.86:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.192:1527 -> 200.171.4.222:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.192:1527 -> 200.171.4.222:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:4852 -> 219.145.198.122:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:4852 -> 219.145.198.122:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1695 -> 61.17.216.25:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1695 -> 61.17.216.25:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1740 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1740 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1774 -> 61.17.216.15:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1774 -> 61.17.216.15:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667
+11/08/17-14:10:28.422005 [**] [119:201:3] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Classification: Unknown Traffic] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667

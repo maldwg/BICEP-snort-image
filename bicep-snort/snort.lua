@@ -256,7 +256,7 @@ rate_filter =
 output = {show_year=true }
 alert_fast = {
     file=true,
-    limit=10000 -- size in MB before roll over (~10GB)
+    limit=10000
  }
 --alert_full = { }
 --alert_sfsocket = { }
