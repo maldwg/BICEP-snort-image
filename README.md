@@ -35,6 +35,6 @@ This fetches the newest version of the submodule for the backend code and is nec
 To build a local version of the image for testing purposes, simply run:
 ``` 
 cd ./bicep-snort
-docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=3.6.2.0 -t maxldwg/bicep-snort:latest --no-cache
+docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=3.7.4.0 -t maxldwg/bicep-snort:latest --no-cache
 ```
 Change the version to your desried one

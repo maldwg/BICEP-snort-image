@@ -39,26 +39,26 @@ async def test_configure_ruleset(mock_shutil, ids: Snort):
 
 
 @pytest.mark.asyncio
-@patch("src.models.snort.exececute_command_sync_in_seperate_thread", new_callable=MagicMock)
+@patch("src.models.snort.execute_command_async", new_callable=AsyncMock)
 async def test_execute_network_analysis_command(mock_execute_command, ids: Snort):
     mock_execute_command.return_value = 555  
     pid = await ids.execute_network_analysis_command()
     mock_execute_command.assert_called_once_with([
        "snort", "-c", ids.default_configuration_location, "-i", ids.tap_interface_name, "-R", ids.ruleset_location, "-l", ids.log_location, "--plugin-path", "/etc/snort/etc/so_rules/"
-    ], "/opt")
+    ])
     assert pid == 555
 
 
 
 @pytest.mark.asyncio
-@patch("src.models.snort.exececute_command_sync_in_seperate_thread", new_callable=MagicMock)
+@patch("src.models.snort.execute_command_async", new_callable=AsyncMock)
 async def test_execute_static_analysis_command(mock_execute_command, ids: Snort):
     mock_execute_command.return_value = 777  
     dataset_path = "/path/to/capture.pcap"
     pid = await ids.execute_static_analysis_command(dataset_path)
     mock_execute_command.assert_called_once_with([
         "snort","-c", ids.default_configuration_location, "-R", ids.ruleset_location,  "-r", dataset_path, "-l", ids.log_location, "--plugin-path", "/etc/snort/etc/so_rules/"
-    ], "/opt")
+    ])
     assert pid == 777
 
 

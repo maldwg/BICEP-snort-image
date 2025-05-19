@@ -2,7 +2,7 @@ import asyncio
 from  src.utils.models.ids_base import IDSBase
 import shutil
 import os
-from ..utils.general_utilities import exececute_command_sync_in_seperate_thread
+from ..utils.general_utilities import exececute_command_sync_in_seperate_thread, execute_command_async
 from .snort_parser import SnortParser
 
 class Snort(IDSBase):
@@ -35,26 +35,14 @@ class Snort(IDSBase):
         # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
         so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
         command = ["snort","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location, "--plugin-path", so_rules_path]
-        loop = asyncio.get_event_loop()
-        pid = await loop.run_in_executor(
-            None,
-            exececute_command_sync_in_seperate_thread,
-            command,
-            "/opt"
-        )
+        pid = await execute_command_async(command)
         return pid
     
     async def execute_static_analysis_command(self, file_path):
         # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
         so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
         command = ["snort","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location, "--plugin-path", so_rules_path]
-        loop = asyncio.get_event_loop()
-        pid = await loop.run_in_executor(
-            None,
-            exececute_command_sync_in_seperate_thread,
-            command,
-            "/opt"
-        )
+        pid = await execute_command_async(command)
         return pid
     
     def get_additional_config_directory_from_file_location(self):
