@@ -10,7 +10,7 @@ class SnortParser(IDSParser):
     alert_file_location = "/opt/logs/alert_fast.txt"
 
     async def parse_alerts(self):
-        parsed_lines = []
+        parsed_lines = set()
         if not os.path.isfile(self.alert_file_location):
             return parsed_lines
         with open(self.alert_file_location, "r") as file:
@@ -23,9 +23,9 @@ class SnortParser(IDSParser):
                     print("...skipping line...")
                     continue
                 if parsed_alert:
-                    parsed_lines.append(parsed_alert)
+                    parsed_lines.add(parsed_alert)
         open(self.alert_file_location, 'w').close()
-        return parsed_lines      
+        return list(parsed_lines)      
 
 
     async def parse_line(self, line):

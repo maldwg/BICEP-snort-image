@@ -38,14 +38,14 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
     print(parser.alert_file_location)
     alerts: list[Alert] = await parser.parse_alerts()
     
-    for a in alerts:
-        print(a)
-    
-    assert len(alerts) == 383
-    assert alerts[0].message == 'INDICATOR-SCAN UPnP service discover attempt'
+    assert len(alerts) == 18
+    alerts = sorted(alerts, key=lambda alert: (alert.time, alert.source_ip))
+    print(alerts[0])
+    print(alerts[10])
+    assert alerts[0].message == '(http_inspect) partial start line'
     assert alerts[0].severity == 0.5
-    assert alerts[2].type == 'Detection of a Network Scan'
-    assert alerts[2].severity == 0.5
+    assert alerts[10].type == 'Detection of a Network Scan'
+    assert alerts[10].severity == 0.5
 
     os.remove(temporary_alert_file)
 

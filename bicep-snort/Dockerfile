@@ -22,5 +22,5 @@ ENV IDS_MODULE=src.models.snort
 ENV IDS_CLASS=Snort
 # Define default value for configuration directory. 
 # gets overriden in the configuration process of Snort
-ENV SNORT_CONFIG_DIR=/tmp/configs
+ENV SNORT_CONFIG_DIR=/tmp/configuration/
 CMD [ "/bin/bash","-c","fastapi dev /opt/code/src/main.py --host 0.0.0.0 --port ${PORT}" ]

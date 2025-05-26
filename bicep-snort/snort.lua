@@ -190,7 +190,8 @@ ips =
     -- (see also related path vars at the top of snort_defaults.lua)
 
     variables = default_variables,
-    include = RULE_PATH .. "/pulledpork.rules",
+    -- deactivate to not rely on these per default!
+    -- include = RULE_PATH .. "/pulledpork.rules",
     policy = tap
 
 }
