@@ -3,7 +3,7 @@ import json
 import os
 import os.path
 from datetime import datetime
-from ..utils.general_utilities import ANALYSIS_MODES
+from ..utils.general_utilities import ANALYSIS_MODES, normalize_timestamp_for_alert
 from dateutil import parser 
 import re
 class SnortParser(IDSParser):
@@ -39,7 +39,7 @@ class SnortParser(IDSParser):
                 time_part = raw_ts.split("-")[1]
                 yyyy = await self.calculate_four_digit_year_from_two_digits(yy)
                 formatted_ts = f"{yyyy}-{mm}-{dd} {time_part}"
-                parsed_line.time = parser.parse(formatted_ts).replace(tzinfo=None).isoformat()
+                parsed_line.time = await normalize_timestamp_for_alert(formatted_ts)
 
             # 2. Extract message (quoted string)
             msg_match = re.search(r"\[\d+:\d+:\d+\]\s+\"(.*?)\"", line)
