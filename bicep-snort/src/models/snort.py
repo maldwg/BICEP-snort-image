@@ -2,7 +2,7 @@ import asyncio
 from  src.utils.models.ids_base import IDSBase
 import shutil
 import os
-from ..utils.general_utilities import exececute_command_sync_in_seperate_thread, execute_command_async
+from ..utils.general_utilities import execute_command_async
 from .snort_parser import SnortParser
 
 class Snort(IDSBase):
@@ -11,6 +11,8 @@ class Snort(IDSBase):
     configuration_location: str = "/tmp/configuration/configuration.lua"
     log_location: str = "/opt/logs"
     ruleset_location: str = "/tmp/custom_rules.rules"
+    so_rules_path: str = f"{"/".join(default_configuration_location.split("/")[:-2])}/so_rules/"
+    snort_extras_path: str = "/usr/local/snort/lib/snort/plugins/extra"
     parser = SnortParser()
     parser.alert_file_location = f"{log_location}/alert_fast.txt"
 
@@ -33,15 +35,13 @@ class Snort(IDSBase):
 
     async def execute_network_analysis_command(self):
         # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
-        so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
-        command = ["snort","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location, "--plugin-path", so_rules_path]
+        command = ["snort","-c", self.default_configuration_location, "-i", self.tap_interface_name, "-R", self.ruleset_location, "-l", self.log_location, "--plugin-path", self.so_rules_path,"--plugin-path", self.snort_extras_path]
         pid = await execute_command_async(command)
         return pid
     
     async def execute_static_analysis_command(self, file_path):
         # use the default-config path, go one directory up, and in the so_rules section, where the lightspd so_rules reside (/etc/snort/etc/so_rules)
-        so_rules_path = f"{"/".join(self.default_configuration_location.split("/")[:-2])}/so_rules/"
-        command = ["snort","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location, "--plugin-path", so_rules_path]
+        command = ["snort","-c", self.default_configuration_location, "-R", self.ruleset_location,  "-r", file_path, "-l", self.log_location, "--plugin-path", self.so_rules_path, "--plugin-path", self.snort_extras_path]
         pid = await execute_command_async(command)
         return pid
     
