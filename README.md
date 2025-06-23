@@ -13,7 +13,8 @@ Snort docker image adapated for BICEP
 
 The image holds every dependency necessary along with the necessary interface implemented, in order to work with the BICEP application
 
-The main BICEP project is available [here](https://github.com/maldwg/BICEP/tree/main)
+The main BICEP project is available [here](https://github.com/maldwg/BICEP/tree/main) <br>
+The official Snort repository can be found [here](https://github.com/snort3/snort3)
 
 ## Usage
 
