@@ -1,3 +1,4 @@
 [submodule "bicep-snort/src/utils"]
 	path = bicep-snort/src/utils
 	url = https://github.com/maldwg/BICEP_Utils.git
+	branch = main

@@ -30,7 +30,6 @@ async def test_parse_alerts_empty_file(parser):
 
 @pytest.mark.asyncio
 async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
-    # pat to your file of outputted alerts. 
     # valid and invalid lines are expected as not every single line is to be expected to have all necessary information
     original_alert_file = f"{TEST_FILE_LOCATION}/alert_fast.txt"
     temporary_alert_file = f"{TEST_FILE_LOCATION}/alert_fast_temporary.txt"
@@ -39,11 +38,14 @@ async def test_parse_alerts_valid_and_invalid_data(parser: SnortParser):
     print(parser.alert_file_location)
     alerts: list[Alert] = await parser.parse_alerts()
     
-    assert len(alerts) == 368
-    assert alerts[0].message == 'INDICATOR-SCAN UPnP service discover attempt'
+    assert len(alerts) == 18
+    alerts = sorted(alerts, key=lambda alert: (alert.time, alert.source_ip))
+    print(alerts[0])
+    print(alerts[10])
+    assert alerts[0].message == '(http_inspect) partial start line'
     assert alerts[0].severity == 0.5
-    assert alerts[2].type == 'Detection of a Network Scan'
-    assert alerts[2].severity == 0.5
+    assert alerts[10].type == 'Detection of a Network Scan'
+    assert alerts[10].severity == 0.5
 
     os.remove(temporary_alert_file)
 
@@ -58,7 +60,17 @@ async def test_parse_line_valid(parser: SnortParser):
     assert isinstance(alert, Alert)
     assert alert.message == 'INDICATOR-SCAN UPnP service discover attempt'
     assert alert.severity == 0.5
-    # If you have multiple types of alerts that you need to distinguish, add more tests like these
+
+
+@pytest.mark.asyncio
+async def test_parse_line_valid(parser: SnortParser):
+    # original data
+    line_data = '11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667'
+    alert = await parser.parse_line(line_data)
+    print(alert.message)
+    assert isinstance(alert, Alert)
+    assert alert.message == '(http_inspect) partial start line'
+    assert alert.severity == 0.5
 
 @pytest.mark.asyncio
 async def test_parse_line_missing_fields(parser: SnortParser):

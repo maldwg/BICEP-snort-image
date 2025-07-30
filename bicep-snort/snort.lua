@@ -190,7 +190,8 @@ ips =
     -- (see also related path vars at the top of snort_defaults.lua)
 
     variables = default_variables,
-    include = RULE_PATH .. "/pulledpork.rules",
+    -- deactivate to not rely on these per default!
+    -- include = RULE_PATH .. "/pulledpork.rules",
     policy = tap
 
 }
@@ -256,7 +257,7 @@ rate_filter =
 output = {show_year=true }
 alert_fast = {
     file=true,
-    limit=10000 -- size in MB before roll over (~10GB)
+    limit=10000
  }
 --alert_full = { }
 --alert_sfsocket = { }

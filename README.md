@@ -13,7 +13,8 @@ Snort docker image adapated for BICEP
 
 The image holds every dependency necessary along with the necessary interface implemented, in order to work with the BICEP application
 
-The main BICEP project is available [here](https://github.com/maldwg/BICEP/tree/main)
+The main BICEP project is available [here](https://github.com/maldwg/BICEP/tree/main) <br>
+The official Snort repository can be found [here](https://github.com/snort3/snort3)
 
 ## Usage
 
@@ -35,6 +36,6 @@ This fetches the newest version of the submodule for the backend code and is nec
 To build a local version of the image for testing purposes, simply run:
 ``` 
 cd ./bicep-snort
-docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=3.6.2.0 -t maxldwg/bicep-snort:latest --no-cache
+docker buildx build . --build-arg BASE_IMAGE=maxldwg/snort --build-arg VERSION=3.7.4.0 -t maxldwg/bicep-snort:latest --no-cache
 ```
 Change the version to your desried one

@@ -390,3 +390,19 @@
 17/07/07-09:08:12.000000 [**] [1:402:16] "PROTOCOL-ICMP destination unreachable port unreachable packet detected" [**] [Classification: Misc activity] [Priority: 3] {ICMP} 192.168.10.15 -> 192.168.10.3
 17/07/07-09:08:13.000000 [**] [1:402:16] "PROTOCOL-ICMP destination unreachable port unreachable packet detected" [**] [Classification: Misc activity] [Priority: 3] {ICMP} 192.168.10.15 -> 192.168.10.3
 17/07/07-09:08:13.000000 [**] [1:402:16] "PROTOCOL-ICMP destination unreachable port unreachable packet detected" [**] [Classification: Misc activity] [Priority: 3] {ICMP} 192.168.10.15 -> 192.168.10.3
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [another class: hopefully no errro] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.165:1349 -> 81.10.0.18:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] potential garbage [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.191:1883 -> 82.128.83.29:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.204:1304 -> 184.106.213.57:6667
+11/08/17-14:10:28.422005 [**] [119:284:1] "(http_inspect) partial start line and disallowed" [**] [Priority: 3] {TCP} 147.32.84.204 -> 61.150.114.216
+11/08/17-14:10:28.422005 [**] [119:201:1] "(http_inspect) not HTTP traffic or unrecoverable HTTP protocol error" [**] [Priority: 3] {TCP} 147.32.84.204:1334 -> 61.150.114.216:6667 information at the end

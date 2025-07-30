@@ -3,19 +3,14 @@ import json
 import os
 import os.path
 from datetime import datetime
-from ..utils.general_utilities import ANALYSIS_MODES
+from ..utils.general_utilities import ANALYSIS_MODES, normalize_timestamp_for_alert
 from dateutil import parser 
 import re
 class SnortParser(IDSParser):
-
-    # TODO: 11 scrape the whole directory  
     alert_file_location = "/opt/logs/alert_fast.txt"
-    LOG_PATTERN = re.compile(
-        r"(\d{2}/\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d+) \[\*\*\] \[\d+:\d+:\d+\] \"(.*?)\" \[\*\*\] \[Classification: (.*?)\] \[Priority: (\d+)\] \{(\w+)\} (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)? -> (\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):?(\d+)?"    
-    )
 
     async def parse_alerts(self):
-        parsed_lines = []
+        parsed_lines = set()
         if not os.path.isfile(self.alert_file_location):
             return parsed_lines
         with open(self.alert_file_location, "r") as file:
@@ -24,46 +19,70 @@ class SnortParser(IDSParser):
                     parsed_alert = await self.parse_line(line)
                 except Exception as e:
                     print(f"Could not parse line {line}")
+                    print(e)
                     print("...skipping line...")
+                    continue
                 if parsed_alert:
-                    parsed_lines.append(parsed_alert)
+                    parsed_lines.add(parsed_alert)
         open(self.alert_file_location, 'w').close()
-        return parsed_lines      
+        return list(parsed_lines)      
 
-
-    # hw to treat null values ? where allowed?
 
     async def parse_line(self, line):
-        match = self.LOG_PATTERN.match(line)
-        if not match:
-            return None
         parsed_line = Alert()
-        timestamp, message, category, priority, protocol, src_ip, src_port, dest_ip, dest_port = match.groups()
         try:
-            # timestamp = 25/07/30-hours:minutes:seconds.milisenconds
-            yy = timestamp.split("/", 2)[0]
-            mm = timestamp.split("/", 2)[1]
-            dd = timestamp.split("/", 2)[2].split("-")[0]
-            time_part = timestamp.split("-")[1]
-            yyyy = await self.calculate_four_digit_year_from_two_digits(yy)
-            formatted_timestamp = f"{yyyy}-{mm}-{dd} {time_part}"
-            parsed_line.time = parser.parse(formatted_timestamp).replace(tzinfo=None).isoformat()
-            
-            parsed_line.source_ip = src_ip
-            parsed_line.source_port = str(src_port) if src_port else None
-            parsed_line.destination_ip = dest_ip
-            parsed_line.destination_port = str(dest_port) if dest_port else None
-            parsed_line.severity = await self.normalize_threat_levels(int(priority))
-            parsed_line.message = message
-            parsed_line.type = category
-        except:
-            print("Could not manage to parse line")
-            return None
+            # 1. Extract timestamp
+            timestamp_match = re.search(r"\d{2}/\d{2}/\d{2}-\d{2}:\d{2}:\d{2}\.\d+", line)
+            if timestamp_match:
+                raw_ts = timestamp_match.group()
+                yy, mm, dd = raw_ts.split("/")[0], raw_ts.split("/")[1], raw_ts.split("/")[2].split("-")[0]
+                time_part = raw_ts.split("-")[1]
+                yyyy = await self.calculate_four_digit_year_from_two_digits(yy)
+                formatted_ts = f"{yyyy}-{mm}-{dd} {time_part}"
+                parsed_line.time = await normalize_timestamp_for_alert(formatted_ts)
 
-        if not parsed_line.time or not parsed_line.source_ip or not parsed_line.source_port or not parsed_line.destination_ip or not parsed_line.destination_port or not parsed_line:
+            # 2. Extract message (quoted string)
+            msg_match = re.search(r"\[\d+:\d+:\d+\]\s+\"(.*?)\"", line)
+            if msg_match:
+                parsed_line.message = msg_match.group(1)
+
+            # 3. Extract priority
+            priority_match = re.search(r"\[Priority:\s*(\d+)\]", line)
+            if priority_match:
+                parsed_line.severity = await self.normalize_threat_levels(int(priority_match.group(1)))
+            else: 
+                parsed_line.severity = None
+
+            # 4. Extract protocol and src -> dst 
+            connection_match = re.search(
+                r"\{(?P<proto>\w+)\}\s+(?P<src_ip>\d{1,3}(?:\.\d{1,3}){3})(?::(?P<src_port>\d+))?\s+->\s+(?P<dst_ip>\d{1,3}(?:\.\d{1,3}){3})(?::(?P<dst_port>\d+))?",
+                line
+            )
+            if connection_match:
+                parsed_line.source_ip = connection_match.group("src_ip")
+                parsed_line.source_port = connection_match.group("src_port")
+                parsed_line.destination_ip = connection_match.group("dst_ip")
+                parsed_line.destination_port = connection_match.group("dst_port")
+
+
+            # 5. Extract type
+            priority_match = re.search(r"\[Classification:\s*(.*?)\]", line)
+            if priority_match:
+                parsed_line.type = str(priority_match.group(1))
+            else:
+                parsed_line.type = "NA"
+                
+            # Optional: fallback if some essential data is missing
+            if not parsed_line.time or not parsed_line.source_ip or not parsed_line.destination_ip or not parsed_line.source_port or not parsed_line.destination_port :
+                return None
+            
+            return parsed_line
+
+        except Exception as e:
+            print(f"Could not parse line: {line.strip()} — {e}")
             return None
         
-        return parsed_line
+    
     
     
     async def normalize_threat_levels(self, threat: int):
