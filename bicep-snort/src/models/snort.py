@@ -25,9 +25,11 @@ class Snort(IDSBase):
             os.makedirs(additional_config_dir, exist_ok=True)
             shutil.move(file_path, self.configuration_location)
             return "succesfully configured"
-        except Exception as e:
-            print(e)
-            return e
+        except Exception:
+            raise HTTPException(
+                status_code=500,
+                detail="Exception occured occured while configuring suricata. Please check the confgiuration file again and make sure it is valid!",
+            )
     
     async def configure_ruleset(self, file_path):
         shutil.move(file_path, self.ruleset_location)
