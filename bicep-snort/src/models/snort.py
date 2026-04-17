@@ -11,7 +11,7 @@ class Snort(IDSBase):
     configuration_location: str = "/tmp/configuration/configuration.lua"
     log_location: str = "/opt/logs"
     ruleset_location: str = "/tmp/custom_rules.rules"
-    so_rules_path: str = f"{"/".join(default_configuration_location.split("/")[:-2])}/so_rules/"
+    so_rules_path: str = "/etc/snort/etc/so_rules/"
     snort_extras_path: str = "/usr/local/snort/lib/snort/plugins/extra"
     parser = SnortParser()
     parser.alert_file_location = f"{log_location}/alert_fast.txt"
